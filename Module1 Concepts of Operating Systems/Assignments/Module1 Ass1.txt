@@ -1,0 +1,283 @@
+Name: Qureshi Mohammed Muqarrab
+CDAC AUGUST 2024
+CDAC MUMBAI
+Module 1: Concepts of Operating System
+Assignment 1
+
+
+Problem 1: Read the instructions carefully and answer accordingly. If there is
+any need to insert some data then do that as well.
+
+a) Navigate and List:
+a. Start by navigating to your home directory and list its contents. Then, move into a named "LinuxAssignment" if it exists; otherwise, create it. 
+
+root@LAPTOP-HD7UDBUA:~# cd ~
+root@LAPTOP-HD7UDBUA:~# ls
+docs  snap
+root@LAPTOP-HD7UDBUA:~# mkdir LinuxAssignment
+root@LAPTOP-HD7UDBUA:~# cd LinuxAssignment
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment#
+
+b) File Management:
+a. Inside the "LinuxAssignment" directory, create a new file named "file1.txt". Display its
+contents. 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# touch file1.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# echo "CDAC Linux Assignment1" > file1.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# cat file1.txt
+CDAC Linux Assignment1
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment#
+
+c) Directory Management:
+a. Create a new directory named "docs" inside the "LinuxAssignment" directory
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# mkdir docs
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment#
+
+d) Copy and Move Files:
+a. Copy the "file1.txt" file into the "docs" directory and rename it to "file2.txt". 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# cp file1.txt docs/file2.txt
+
+e) Permissions and Ownership:
+a. Change the permissions of "file2.txt" to allow read, write, and execute permissions for
+the owner and only read permissions for others. Then, change the owner of "file2.txt" to
+the current user. 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# chmod u+rwx file2.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# chmod g+r file2.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# chmod o+r file2.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# ls -l
+total 4
+-rwxr--r-- 1 root root 23 Aug 29 19:52 file2.txt
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# sudo chown $(whoami) file2.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# ls -l
+total 4
+-rwxr--r-- 1 root root 23 Aug 29 19:52 file2.txt
+
+f) Final Checklist:
+a. Finally, list the contents of the "LinuxAssignment" directory and the root directory to ensure that all operations were performed correctly. 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# ls -l ~/LinuxAssignment
+total 8
+drwxr-xr-x 2 root root 4096 Aug 29 19:52 docs
+-rw-r--r-- 1 root root   23 Aug 29 19:48 file1.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# ls -l /
+total 2144
+lrwxrwxrwx   1 root root       7 Nov 23  2023 bin -> usr/bin
+drwxr-xr-x   2 root root    4096 Apr 18  2022 boot
+drwxr-xr-x  16 root root    3560 Aug 29 19:37 dev
+drwxr-xr-x  73 root root    4096 Aug 29 21:20 etc
+drwxr-xr-x   2 root root    4096 Apr 18  2022 home
+-rwxrwxrwx   1 root root 2127224 Apr 25 23:47 init
+lrwxrwxrwx   1 root root       7 Nov 23  2023 lib -> usr/lib
+lrwxrwxrwx   1 root root       9 Nov 23  2023 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root       9 Nov 23  2023 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root      10 Nov 23  2023 libx32 -> usr/libx32
+drwx------   2 root root   16384 Aug 27 20:46 lost+found
+drwxr-xr-x   2 root root    4096 Nov 23  2023 media
+drwxr-xr-x   5 root root    4096 Aug 27 20:46 mnt
+drwxr-xr-x   2 root root    4096 Nov 23  2023 opt
+dr-xr-xr-x 210 root root       0 Aug 29 19:37 proc
+drwx------   6 root root    4096 Aug 29 19:42 root
+drwxr-xr-x  19 root root     580 Aug 29 19:42 run
+lrwxrwxrwx   1 root root       8 Nov 23  2023 sbin -> usr/sbin
+drwxr-xr-x   8 root root    4096 Nov 23  2023 snap
+drwxr-xr-x   2 root root    4096 Nov 23  2023 srv
+dr-xr-xr-x  11 root root       0 Aug 29 19:37 sys
+drwxrwxrwt  10 root root    4096 Aug 29 21:05 tmp
+drwxr-xr-x  14 root root    4096 Nov 23  2023 usr
+drwxr-xr-x  13 root root    4096 Nov 23  2023 var
+
+g) File Searching:
+a. Search for all files with the extension ".txt" in the current directory and its subdirectories.
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment/docs# find . -type f -name ".txt"
+
+b. Display lines containing a specific word in a file (provide a file name and the specific
+word to search). 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# ls -l
+total 8
+drwxr-xr-x 2 root root 4096 Aug 29 21:32 docs
+-rw-r--r-- 1 root root   23 Aug 29 19:48 file1.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# grep "CDAC" file1.txt
+CDAC Linux Assignment1
+
+h) System Information:
+a. Display the current system date and time. 
+
+root@LAPTOP-HD7UDBUA:~# date
+Thu Aug 29 21:43:01 IST 2024
+
+i) Networking:
+a. Display the IP address of the system.
+
+root@LAPTOP-HD7UDBUA:~# hostname -I
+172.21.182.137
+
+b. Ping a remote server to check connectivity (provide a remote server address to ping). (Google server is provided that has a ping of 8.8.8.8)
+
+root@LAPTOP-HD7UDBUA:~# ping -c 4 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=59 time=7.08 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=59 time=7.87 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=59 time=162 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=59 time=14.7 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 7.079/47.984/162.311/66.072 msgoogle 
+
+j) File Compression:
+a. Compress the "docs" directory into a zip file.
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# zip -r docs.zip docs
+  adding: docs/ (stored 0%)
+  adding: docs/file3.txt (stored 0%)
+  adding: docs/file4.txt (stored 0%)
+  adding: docs/file2.txt (stored 0%)
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# ls -l docs.zip
+-rw-r--r-- 1 root root 651 Aug 29 21:52 docs.zip
+
+b. Extract the contents of the zip file into a new directory. 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# mkdir extracted_docs
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# unzip docs.zip -d extracted_docs
+Archive:  docs.zip
+   creating: extracted_docs/docs/
+ extracting: extracted_docs/docs/file3.txt
+ extracting: extracted_docs/docs/file4.txt
+ extracting: extracted_docs/docs/file2.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# ls -l
+total 16
+drwxr-xr-x 2 root root 4096 Aug 29 21:32 docs
+-rw-r--r-- 1 root root  651 Aug 29 21:52 docs.zip
+drwxr-xr-x 3 root root 4096 Aug 29 21:54 extracted_docs
+-rw-r--r-- 1 root root   23 Aug 29 19:48 file1.txt
+
+k) File Editing:
+a. Open the "file1.txt" file in a text editor and add some text to it.
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# nano file1.txt
+
+b. Replace a specific word in the "file1.txt" file with another word (provide the original
+word and the word to replace it with). 
+
+sed -i 's/name/fullnamee/g' file1.txt
+
+
+Problem 2: Read the instructions carefully and answer accordingly. If there is
+any need to insert some data then do that as well.
+
+a. Suppose you have a file named "data.txt" containing important information. Display the
+first 10 lines of this file to quickly glance at its contents using a command. 
+
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# echo -e "States of India\nAndhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChhattisgarh\nGoa\nGujurat\nHaryana\nHimachal Pradesh\nJharkhand\nKarnataka\nMadhya Pradesh\nMaharashtra\netc etc " > data.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# head -n 10 data.txt
+States of India
+Andhra Pradesh
+Arunachal Pradesh
+Assam
+Bihar
+Chhattisgarh
+Goa
+Gujurat
+Haryana
+Himachal Pradesh
+
+b. Now, to check the end of the file for any recent additions, display the last 5 lines of
+"data.txt" using another command.
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# head -n 15 data.txt
+States of India
+Andhra Pradesh
+Arunachal Pradesh
+Assam
+Bihar
+Chhattisgarh
+Goa
+Gujurat
+Haryana
+Himachal Pradesh
+Jharkhand
+Karnataka
+Madhya Pradesh
+Maharashtra
+etc etc
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# tail -n 5 data.txt
+Jharkhand
+Karnataka
+Madhya Pradesh
+Maharashtra
+etc etc
+
+c. In a file named "numbers.txt," there are a series of numbers. Display the first 15 lines of this file to analyze the initial data set.
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# echo -e "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20" > numbers.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# head -n 15 numbers.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+d. To focus on the last few numbers of the dataset, display the last 3 lines of "numbers.txt". 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# tail -n 3 numbers.txt
+
+18
+19
+20
+
+e. Imagine you have a file named "input.txt" with text content. Use a command to translate
+all lowercase letters to uppercase in "input.txt" and save the modified text in a new file
+named "output.txt." 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# echo "this is a sample text with lowercase letters." > input.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# tr 'a-z' 'A-Z' <input.txt> output.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# cat output.txt
+THIS IS A SAMPLE TEXT WITH LOWERCASE LETTERS.
+
+f. In a file named "duplicate.txt," there are several lines of text, some of which are
+duplicates. Use a command to display only the unique lines from "duplicate.txt."
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# echo -e "Apple\nbanana\ncherry\nbanana\napple" > duplicate.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# cat duplicate.txt
+Apple
+banana
+cherry
+banana
+apple
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# sort duplicate.txt | uniq > unique_lines.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# cat unique_lines.txt
+Apple
+apple
+banana
+cherry
+
+g. In a file named "fruit.txt," there is a list of fruits, but some fruits are repeated. Use a command to display each unique fruit along with the count of its occurrences in
+"fruit.txt." 
+
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# echo -e "apple\nbanana\napple\nmango\nbanana\napple\nmango\nmango\ngrapes" > fruit.txt
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment# sort fruit.txt | uniq -c
+      3 apple
+      2 banana
+      1 grapes
+      3 mango
+root@LAPTOP-HD7UDBUA:~/LinuxAssignment#
+
+
+
